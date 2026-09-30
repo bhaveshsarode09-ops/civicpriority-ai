@@ -76,7 +76,7 @@ export const Header: React.FC<HeaderProps> = ({
               }`}
             >
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>{isBackendHealthy ? "Core Active" : "Connecting"}</span>
+                  <span>{isBackendHealthy ? "Core Active" : "Demo Dataset Active"}</span>
             </div>
           </div>
         </div>

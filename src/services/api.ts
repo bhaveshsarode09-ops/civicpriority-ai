@@ -15,6 +15,13 @@ import {
   ScoringWeights,
   UnderlyingComplaintItem,
 } from "../types/civic";
+import {
+  DEMO_ANALYTICS,
+  DEMO_CLUSTERS,
+  demoClusterDetails,
+  demoSubmitComplaint,
+  demoUpdateCluster,
+} from "../demo/fallback";
 
 const BASE_URL = "";
 
@@ -54,7 +61,11 @@ export async function checkHealth(): Promise<{ status: string; service: string }
 }
 
 export async function fetchAnalytics(): Promise<AnalyticsData> {
-  return request<AnalyticsData>("/api/analytics");
+  try {
+    return await request<AnalyticsData>("/api/analytics");
+  } catch {
+    return DEMO_ANALYTICS;
+  }
 }
 
 export interface ClusterFilterParams {
@@ -84,21 +95,44 @@ export async function fetchClusters(filters?: ClusterFilterParams): Promise<{ it
   }
 
   const queryStr = params.toString() ? `?${params.toString()}` : "";
-  return request<{ items: IssueCluster[]; total: number }>(`/api/clusters${queryStr}`);
+  try {
+    return await request<{ items: IssueCluster[]; total: number }>(`/api/clusters${queryStr}`);
+  } catch {
+    let items = [...DEMO_CLUSTERS];
+    if (filters?.priority_level && filters.priority_level !== "All") {
+      items = items.filter((item) => item.priority_level === filters.priority_level);
+    }
+    if (filters?.category && filters.category !== "All") {
+      items = items.filter((item) => item.category === filters.category);
+    }
+    if (filters?.search?.trim()) {
+      const search = filters.search.toLowerCase();
+      items = items.filter((item) => `${item.title} ${item.description} ${item.locality}`.toLowerCase().includes(search));
+    }
+    return { items, total: items.length };
+  }
 }
 
 export async function fetchClusterDetails(clusterId: string): Promise<ClusterDetailResponse> {
-  return request<ClusterDetailResponse>(`/api/clusters/${encodeURIComponent(clusterId)}`);
+  try {
+    return await request<ClusterDetailResponse>(`/api/clusters/${encodeURIComponent(clusterId)}`);
+  } catch {
+    return demoClusterDetails(clusterId);
+  }
 }
 
 export async function updateCluster(
   clusterId: string,
   update: { status?: IssueStatus; assigned_department?: string; notes?: string }
 ): Promise<{ message: string; cluster: IssueCluster }> {
-  return request<{ message: string; cluster: IssueCluster }>(`/api/clusters/${encodeURIComponent(clusterId)}`, {
-    method: "PATCH",
-    body: JSON.stringify(update),
-  });
+  try {
+    return await request<{ message: string; cluster: IssueCluster }>(`/api/clusters/${encodeURIComponent(clusterId)}`, {
+      method: "PATCH",
+      body: JSON.stringify(update),
+    });
+  } catch {
+    return { message: "Updated in static demo mode", cluster: demoUpdateCluster(clusterId, update) };
+  }
 }
 
 export interface IngestSingleComplaintPayload {
@@ -115,10 +149,14 @@ export interface IngestSingleComplaintPayload {
 export async function submitComplaint(
   payload: IngestSingleComplaintPayload
 ): Promise<{ complaint: ComplaintRecord; processed: ProcessedComplaint }> {
-  return request<{ complaint: ComplaintRecord; processed: ProcessedComplaint }>("/api/complaints", {
-    method: "POST",
-    body: JSON.stringify(payload),
-  });
+  try {
+    return await request<{ complaint: ComplaintRecord; processed: ProcessedComplaint }>("/api/complaints", {
+      method: "POST",
+      body: JSON.stringify(payload),
+    });
+  } catch {
+    return demoSubmitComplaint(payload);
+  }
 }
 
 export async function submitBatch(

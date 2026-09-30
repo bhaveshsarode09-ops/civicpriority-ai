@@ -132,6 +132,10 @@ npm run dev
 - Frontend available at: `http://localhost:3000`
 - Backend API routed through Vite proxy: `http://localhost:3000/api/health`
 
+### Hosted/demo fallback
+
+If the frontend is deployed without the FastAPI service, the app automatically falls back to a privacy-sanitized benchmark derived from the [Kaggle Civic and Municipality Complaint System Dataset](https://www.kaggle.com/datasets/wajahattaj/civic-and-municipality-complaint-system-dataset). This prevents a missing `/api` service from producing a blank dashboard or a 404 on complaint submission. The header shows **Demo Dataset Active** in this mode. The benchmark is based on municipal records from multiple US cities and is not official Indian government data; production use requires authorized local data.
+
 ---
 
 ## 📖 Walkthrough Guide

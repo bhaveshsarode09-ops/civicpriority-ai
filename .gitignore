@@ -6,3 +6,8 @@ coverage/
 *.log
 .env*
 !.env.example
+backend/data/*.sqlite3
+backend/data/kaggle/*_raw.csv
+__pycache__/
+*.pyc
+.pytest_cache/
