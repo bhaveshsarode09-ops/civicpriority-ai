@@ -1,6 +1,6 @@
 # Kaggle benchmark data
 
-This directory contains a privacy-sanitized copy of the Kaggle **Civic and Municipality Complaint System Dataset**:
+This directory contains a privacy-sanitized copy of the Kaggle **Civic and Municipality Complaint System Dataset**. It is included specifically for **data simulation, ML-framework benchmarking, complaint-priority experiments, and prototype demonstration**.
 
 - Source: https://www.kaggle.com/datasets/wajahattaj/civic-and-municipality-complaint-system-dataset
 - File: `municipal_training_set_1100_sanitized.csv`
@@ -8,4 +8,4 @@ This directory contains a privacy-sanitized copy of the Kaggle **Civic and Munic
 - Retained fields: complaint description, issue type, status, date, coarse location, coordinates, department, priority, severity, area importance, and report count.
 - Removed fields: resident name, resident ID, email, and phone number.
 
-The source describes the records as a benchmark dataset built for municipal triage and says they cover multiple US cities. It is used here for model/demo benchmarking only, not as official Indian government data. The application must use authorized local data before production deployment.
+The source describes the records as a benchmark dataset built for municipal triage and says they cover multiple US cities. It is **not official Indian government data, not live municipal data, and not evidence of a real deployment**. The application must use authorized, locally relevant data before production deployment. See the main [README](../../../README.md) for the full dataset and ML-framework disclosure.

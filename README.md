@@ -8,6 +8,19 @@
 
 > **Mandatory Disclaimer**: *DEMONSTRATION SYSTEM: Uses synthetic data. Not connected to live municipal dispatch.*
 
+## Dataset and ML Framework Disclosure
+
+This prototype uses the **Kaggle Civic and Municipality Complaint System Dataset** for **data simulation, benchmark analysis, and demonstration of the ML framework**:
+
+- **Kaggle source:** [Civic and Municipality Complaint System Dataset](https://www.kaggle.com/datasets/wajahattaj/civic-and-municipality-complaint-system-dataset)
+- **Dataset size:** 1,100 municipal complaint records with issue descriptions, issue types, locations, departments, severity, priority labels, and citizen-report counts.
+- **How it is used:** The privacy-sanitized records are used to demonstrate complaint classification, issue grouping, municipal prioritization, transparent scoring, and the frontend fallback dataset when the backend API is unavailable.
+- **Privacy:** Resident names, resident IDs, email addresses, and phone numbers were removed before inclusion in this repository.
+- **Scope:** The Kaggle records are a benchmark dataset covering multiple US cities. They are **not live Indian government data, not official municipal records, and not evidence of real deployments**.
+- **Production requirement:** A real deployment would require authorized, locally relevant Indian datasets, official APIs, consent, data-sharing agreements, and privacy/security review.
+
+The ML framework and scoring logic are dataset-agnostic. The Kaggle data is used only to simulate inputs and validate the workflow; it does not replace the need for authorized local data.
+
 CivicPriority AI is an open-source, explainable decision support system designed for municipal commissioners, district collectors, and urban planners. It ingests messy, multilingual citizen grievances across multiple reporting channels (public meetings, paper petitions, WhatsApp/SMS helplines, web portals, and social media), automatically redacts personal identifiable information (PII), clusters duplicate reports about shared civic failures, and ranks interventions using a transparent, multi-criteria mathematical formula with built-in fairness safeguards.
 
 ---
@@ -106,7 +119,7 @@ All 54 tests run locally with 100% pass rate:
 
 ```bash
 # Run the complete test suite
-PYTHONPATH=backend/src /opt/venv/bin/pytest backend/tests/ -v
+PYTHONPATH=backend/src python3 -m pytest backend/tests/ -v
 ```
 
 - `test_models.py` (7 tests): Data integrity, Pydantic score boundaries, SQLite persistence.

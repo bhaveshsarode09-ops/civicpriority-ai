@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="max-w-7xl mx-auto w-full flex items-center gap-2">
           <AlertTriangle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
           <span className="font-medium tracking-wide">
-            DEMONSTRATION SYSTEM: Uses synthetic data. Not connected to live municipal dispatch.
+            DEMONSTRATION SYSTEM: Kaggle benchmark data is used for simulation and ML-framework testing; not connected to live municipal dispatch.
           </span>
           <span className="hidden md:inline text-amber-300/60">·</span>
           <span className="hidden md:inline text-amber-300/80">
