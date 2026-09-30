@@ -169,7 +169,6 @@ export default function App() {
           <GrievanceIntakeView
             onComplaintSubmitted={async () => {
               await loadData();
-              setActiveTab("policy");
             }}
           />
         )}
