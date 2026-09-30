@@ -1,6 +1,0 @@
-{
-  "name": "CivicPriority AI",
-  "description": "From Citizen Voice to Government Action — Transform citizen complaints into ranked, explainable development priorities for policymakers.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

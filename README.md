@@ -6,7 +6,7 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115-teal)](backend/src/civicpriority/api.py)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
-> **Mandatory Disclaimer**: *DEMONSTRATION SYSTEM: Uses synthetic data. Not connected to live municipal dispatch.*
+> **Mandatory Disclaimer**: *DEMONSTRATION SYSTEM: Uses a privacy-sanitized Kaggle benchmark for simulation. Not connected to live municipal dispatch.*
 
 ## Dataset and ML Framework Disclosure
 

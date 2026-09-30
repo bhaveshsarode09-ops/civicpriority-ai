@@ -1,4 +1,4 @@
-// Generated from the privacy-sanitized Kaggle municipal complaint benchmark.
+// Privacy-sanitized Kaggle municipal complaint benchmark snapshot.
 // Source: https://www.kaggle.com/datasets/wajahattaj/civic-and-municipality-complaint-system-dataset
 // PII fields were removed; benchmark data is not official government data.
 

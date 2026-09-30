@@ -207,7 +207,7 @@ export default function App() {
           </div>
 
           <div className="text-slate-400 text-center sm:text-right">
-            DEMONSTRATION SYSTEM: Uses synthetic data. Not connected to live municipal dispatch.
+            DEMONSTRATION SYSTEM: Uses Kaggle benchmark data for simulation. Not connected to live municipal dispatch.
           </div>
         </div>
       </footer>

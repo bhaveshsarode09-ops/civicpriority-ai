@@ -1,7 +1,7 @@
 # CivicPriority AI — End-to-End System Demonstration & Verification Guide
 
 > **System Status**: Fully Operational · 54 Automated Tests Passing · Dual Vite/FastAPI Engine Active
-> **Mandatory Disclaimer**: *DEMONSTRATION SYSTEM: Uses synthetic data. Not connected to live municipal dispatch.*
+> **Mandatory Disclaimer**: *DEMONSTRATION SYSTEM: Uses a privacy-sanitized Kaggle benchmark for simulation. Not connected to live municipal dispatch.*
 
 ---
 
